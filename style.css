@@ -483,10 +483,19 @@ section {
   margin-bottom: 20px;
 }
 .skill-icon {
-  width: 36px;
-  height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 18px;
-  opacity: 0.85;
+}
+.skill-icon i {
+  font-size: 38px;
+  opacity: 0.9;
+  filter: grayscale(1) brightness(10);
+  transition: filter 0.3s ease;
+}
+.skill-card:hover .skill-icon i {
+  filter: none;
 }
 .skill-name {
   font-family: var(--mono);
