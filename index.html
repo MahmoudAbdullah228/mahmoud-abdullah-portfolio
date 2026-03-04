@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mahmoud Abdallah — Frontend Developer</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Instrument+Serif:ital@0;1&family=Syne:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- NAV -->
+    <nav>
+      <img src="./images/Logo.png" alt="2AB Logo" class="nav-logo" />
+      <ul class="nav-links">
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#learning">Journey</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-bg-circle"></div>
+      <div class="hero-inner">
+        <!-- Text -->
+        <div>
+          <div class="hero-label fade-up d1">Available for Projects</div>
+          <h1 class="hero-title fade-up d2">
+            Crafting
+            <span class="line-gold">Digital</span>
+            Experiences.
+          </h1>
+          <p class="hero-subtitle fade-up d3">
+            Egyptian CS student &amp; Frontend Developer. Building
+            high-performance, visually precise web interfaces — and mentoring
+            the next generation of developers at GDG Obour.
+          </p>
+          <div class="hero-cta-row fade-up d4">
+            <a href="#projects" class="btn-gold"><span>View My Work</span></a>
+            <a
+              href="https://drive.google.com/file/d/1BFt0sI17NEZaabPG49BSN-pYrZXu47mI/view"
+              target="_blank"
+              class="btn-outline"
+              >CV</a
+            >
+            <a href="#contact" class="btn-outline">Hire Me</a>
+          </div>
+        </div>
+        <!-- Vertical Divider -->
+        <div class="hero-divider fade-up d4"></div>
+        <!-- Photo -->
+        <div class="fade-up d5">
+          <div class="profile-wrap">
+            <div class="profile-frame-border"></div>
+            <div class="profile-frame-border-2"></div>
+            <img
+              src="./images/ME.jpg"
+              alt="Mahmoud Abdallah"
+              class="profile-photo"
+            />
+            <div class="profile-tag">Mahmoud Abdallah</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <div class="scroll-line"></div>
+        Scroll to explore
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="section-label">01 &mdash; Tech Arsenal</div>
+      <h2 class="section-title">Skills &amp;<br />Stack</h2>
+      <div class="terminal-window">
+        <div class="terminal-bar">
+          <span class="t-dot t-red"></span><span class="t-dot t-yellow"></span
+          ><span class="t-dot t-green"></span>
+          <span class="t-title">mahmoud@dev ~ $ ls tech-stack</span>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-num">01</div>
+            <svg
+              class="skill-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="2" />
+              <path
+                d="M2 12h3M19 12h3M12 2v3M12 19v3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"
+              />
+            </svg>
+            <div class="skill-name">HTML &amp; CSS</div>
+            <div class="skill-desc">
+              HTML5 semantics, CSS3, Flexbox,<br />Grid, animations,
+              accessibility.
+            </div>
+            <div class="skill-level">Expert</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-num">02</div>
+            <svg
+              class="skill-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="16 18 22 12 16 6" />
+              <polyline points="8 6 2 12 8 18" />
+            </svg>
+            <div class="skill-name">JavaScript</div>
+            <div class="skill-desc">
+              ES6+, DOM, async/await,<br />RESTful APIs, JSON.
+            </div>
+            <div class="skill-level">Advanced</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-num">03</div>
+            <svg
+              class="skill-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+              />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="9" y1="13" x2="15" y2="13" />
+            </svg>
+            <div class="skill-name">TypeScript</div>
+            <div class="skill-desc">
+              Typed components, interfaces,<br />generics, strict mode.
+            </div>
+            <div class="skill-level">Proficient</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-num">04</div>
+            <svg
+              class="skill-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="3" />
+              <line x1="12" y1="1" x2="12" y2="4" />
+              <line x1="12" y1="20" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="6.34" y2="6.34" />
+              <line x1="17.66" y1="17.66" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="4" y2="12" />
+              <line x1="20" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="6.34" y2="17.66" />
+              <line x1="17.66" y1="6.34" x2="19.78" y2="4.22" />
+            </svg>
+            <div class="skill-name">React.js</div>
+            <div class="skill-desc">
+              Hooks, React Router, state mgmt,<br />reusable components, CRUD.
+            </div>
+            <div class="skill-level">Advanced</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-num">05</div>
+            <svg
+              class="skill-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="M3 9h18M9 21V9" />
+            </svg>
+            <div class="skill-name">Tailwind &amp; SASS</div>
+            <div class="skill-desc">
+              Utility-first, responsive design,<br />variables, mixins, nesting.
+            </div>
+            <div class="skill-level">Expert</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-num">06</div>
+            <svg
+              class="skill-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <ellipse cx="12" cy="5" rx="9" ry="3" />
+              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+            </svg>
+            <div class="skill-name">PHP &amp; MySQL</div>
+            <div class="skill-desc">
+              Laravel basics, CRUD operations,<br />relational DB, SQL queries.
+            </div>
+            <div class="skill-level">Basics</div>
+          </div>
+        </div>
+      </div>
+      <div class="stats-row">
+        <div class="stat-item">
+          <span class="stat-num">3+</span
+          ><span class="stat-label">Years Coding</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">10+</span
+          ><span class="stat-label">Technologies</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">4</span
+          ><span class="stat-label">Real Projects</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">30+</span
+          ><span class="stat-label">Students Taught</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-label">02 &mdash; SELECTED WORK</div>
+      <h2 class="section-title">Projects &amp;<br />Builds</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img
+            src="./images/StackOverLord.png"
+            alt="Stack Overlord"
+            class="project-img"
+          />
+          <div class="project-body">
+            <div>
+              <div class="project-num">Project — 001</div>
+              <div class="project-name">Stack Overlord</div>
+              <div class="project-desc">
+                Full-featured e-commerce product dashboard. CRUD operations,
+                dynamic product cards, reusable React components, and clean
+                state management across add, edit, delete flows.
+              </div>
+            </div>
+            <div>
+              <div class="project-tags">
+                <span class="tag">React.js</span
+                ><span class="tag">TypeScript</span
+                ><span class="tag">Tailwind CSS</span
+                ><span class="tag">CRUD</span>
+              </div>
+              <div class="project-cta">
+                <a
+                  href="https://github.com/MahmoudAbdullah228/StackOverLord_Store"
+                  target="_blank"
+                  class="btn-demo"
+                  >GitHub</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <img
+            src="./images/Fior.png"
+            alt="Fior Flower Shop"
+            class="project-img"
+          />
+          <div class="project-body">
+            <div>
+              <div class="project-num">Project — 002</div>
+              <div class="project-name">Fior Flower Shop</div>
+              <div class="project-desc">
+                Responsive flower shop landing page with CSS Grid gallery,
+                smooth animations, contact form, and integrated map. Focused on
+                modern UI and layout precision.
+              </div>
+            </div>
+            <div>
+              <div class="project-tags">
+                <span class="tag">HTML5</span><span class="tag">CSS3</span
+                ><span class="tag">Bootstrap</span
+                ><span class="tag">CSS Grid</span>
+              </div>
+              <div class="project-cta">
+                <a
+                  href="https://github.com/MahmoudAbdullah228/Fior-Flower-Shop"
+                  target="_blank"
+                  class="btn-demo"
+                  >GitHub</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="./images/Leon.png" alt="Leon Agency" class="project-img" />
+          <div class="project-body">
+            <div>
+              <div class="project-num">Project — 003</div>
+              <div class="project-name">Leon Agency</div>
+              <div class="project-desc">
+                Minimal full-viewport company landing page. Full-screen hero,
+                overlay typography, clean navigation — demonstrating mastery of
+                pure HTML &amp; CSS layout fundamentals.
+              </div>
+            </div>
+            <div>
+              <div class="project-tags">
+                <span class="tag">HTML5</span><span class="tag">CSS3</span
+                ><span class="tag">Responsive</span>
+              </div>
+              <div class="project-cta">
+                <a
+                  href="https://github.com/MahmoudAbdullah228/HTML_And_CSS_Template_One"
+                  target="_blank"
+                  class="btn-demo"
+                  >GitHub</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <img
+            src="./images/Weather App.png"
+            alt="Weather App"
+            class="project-img"
+            style="object-fit: cover; background: #1a9e8f"
+          />
+          <div class="project-body">
+            <div>
+              <div class="project-num">Project — 004</div>
+              <div class="project-name">Weather App</div>
+              <div class="project-desc">
+                Real-time weather app fetching live data via RESTful API.
+                Displays temperature, humidity, wind speed, and conditions with
+                a clean responsive card UI.
+              </div>
+            </div>
+            <div>
+              <div class="project-tags">
+                <span class="tag">HTML</span><span class="tag">CSS</span
+                ><span class="tag">JavaScript</span><span class="tag">API</span>
+              </div>
+              <div class="project-cta">
+                <a
+                  href="https://github.com/MahmoudAbdullah228/Weather-App"
+                  target="_blank"
+                  class="btn-demo"
+                  >GitHub</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- LEARNING JOURNEY -->
+    <section id="learning">
+      <div class="section-label">03 &mdash; HOW I GOT HERE</div>
+      <h2 class="section-title">Learning<br />Journey</h2>
+      <div class="journey-track">
+        <div class="journey-step">
+          <div class="step-num">01</div>
+          <div style="flex: 1">
+            <div class="step-body">
+              <div class="step-mentor">With Mohamed Abuhadhoud</div>
+              <div class="step-title">Programming Foundations</div>
+              <div class="step-note">
+                Started from zero with strong CS fundamentals — the base that
+                makes every line of code intentional.
+              </div>
+              <div class="step-skills">
+                <span class="step-tag">C++</span
+                ><span class="step-tag">OOP</span
+                ><span class="step-tag">Data Structures</span
+                ><span class="step-tag">Algorithms</span
+                ><span class="step-tag">Problem Solving</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="journey-step">
+          <div class="step-num">02</div>
+          <div style="flex: 1">
+            <div class="step-body">
+              <div class="step-mentor">With Osama Elzero</div>
+              <div class="step-title">Frontend Fundamentals</div>
+              <div class="step-note">
+                Learned to build real, responsive interfaces from the ground up
+                — the craft of the web.
+              </div>
+              <div class="step-skills">
+                <span class="step-tag">HTML5</span
+                ><span class="step-tag">CSS3</span
+                ><span class="step-tag">JavaScript</span
+                ><span class="step-tag">SASS</span
+                ><span class="step-tag">Bootstrap</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="journey-step">
+          <div class="step-num">03</div>
+          <div style="flex: 1">
+            <div class="step-body">
+              <div class="step-mentor">With Mohamed Naga</div>
+              <div class="step-title">Pro Frontend</div>
+              <div class="step-note">
+                Leveled up to modern, production-grade frontend — building
+                scalable apps with confidence.
+              </div>
+              <div class="step-skills">
+                <span class="step-tag">Tailwind CSS</span
+                ><span class="step-tag">TypeScript</span
+                ><span class="step-tag">React.js</span
+                ><span class="step-tag">React Router</span
+                ><span class="step-tag">API Integration</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="journey-step">
+          <div class="step-num">04</div>
+          <div style="flex: 1">
+            <div class="step-body">
+              <div class="step-mentor">With Black Horse</div>
+              <div class="step-title">Backend Basics</div>
+              <div class="step-note">
+                Understood the full picture — databases, server logic, and how
+                the backend powers the frontend.
+              </div>
+              <div class="step-skills">
+                <span class="step-tag">MySQL</span
+                ><span class="step-tag">PHP</span
+                ><span class="step-tag">Laravel</span
+                ><span class="step-tag">CRUD</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="journey-step">
+          <div
+            class="step-num"
+            style="
+              border-color: rgba(212, 175, 55, 0.35);
+              color: rgba(212, 175, 55, 0.45);
+            "
+          >
+            ∞
+          </div>
+          <div style="flex: 1">
+            <div
+              class="step-body"
+              style="border-color: rgba(212, 175, 55, 0.1)"
+            >
+              <div class="step-mentor">Ongoing — 2023 → 2027</div>
+              <div class="step-title">CS Degree — Obour Institute</div>
+              <div class="step-note">
+                Studying at High Institute for Engineering &amp; Technology at
+                Obour. Deepening knowledge in OS, databases, system analysis,
+                and applied AI.
+              </div>
+              <div class="step-skills">
+                <span class="step-tag">Computer Science</span
+                ><span class="step-tag">OS</span
+                ><span class="step-tag">Databases</span
+                ><span class="step-tag">AI Foundations</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- COMMUNITY + BIO side by side -->
+    <section id="community">
+      <div class="section-label">04 &mdash; Beyond the IDE</div>
+      <h2 class="section-title">Community &amp;<br />Mentorship</h2>
+
+      <div class="community-layout">
+        <!-- Left: two cards stacked -->
+        <div class="community-cards">
+          <div class="community-card">
+            <div class="comm-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+              </svg>
+            </div>
+            <div class="comm-org">GDG on Campus<br />Obour</div>
+            <div class="comm-role">
+              Frontend Instructor — Oct 2025 → Present
+            </div>
+            <div class="comm-desc">
+              Delivering frontend workshops covering HTML, CSS, JavaScript,
+              responsive design, and accessibility. Supporting students in
+              building real-world projects, debugging code, and integrating
+              APIs.
+            </div>
+            <div class="comm-date">Obour City, Egypt</div>
+          </div>
+          <div class="community-card">
+            <div class="comm-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+            <div class="comm-org">Teaching<br />Frontend Dev</div>
+            <div class="comm-role">Educator &amp; Curriculum Designer</div>
+            <div class="comm-desc">
+              Preparing educational materials, UI/UX demos using Figma, and
+              collaborating on developer community events. Turning juniors into
+              builders — one component at a time.
+            </div>
+            <div class="comm-date">30+ Students Mentored</div>
+          </div>
+        </div>
+
+        <!-- Right: bio quote -->
+        <div class="bio-panel">
+          <p class="bio-quote">
+            "I'm Mahmoud Abdallah, a Computer Science student and Full-stack
+            Developer based in <em>Egypt</em>. At 21, my focus is on building
+            high-performance, visually stunning web architectures. Beyond the
+            IDE, I serve as a member of the <em>GDG Obour</em> team, where I
+            mentor the next generation of frontend developers. My philosophy is
+            simple: <em>write clean code, build with intent</em>, and never stop
+            learning the next big thing in AI and CS."
+          </p>
+          <div class="bio-sig">Mahmoud Abdallah</div>
+          <div class="bio-titles">
+            Full-stack Developer <span>·</span> Frontend Specialist
+            <span>·</span> Tech Educator
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="contact-glow"></div>
+      <div class="contact-eyebrow">05 &mdash; LET'S BUILD TOGETHER</div>
+      <h2 class="contact-title">Got a<span>Vision?</span></h2>
+      <p class="contact-sub">
+        Whether it's a high-stakes product, an open-source collaboration, or a
+        mentorship inquiry — I want to hear about it.
+      </p>
+      <div class="contact-email-display">mahmoudabdullah2284@gmail.com</div>
+      <div class="contact-actions">
+        <a href="mailto:mahmoudabdullah2284@gmail.com" class="btn-gold"
+          ><span>Hire Me</span></a
+        >
+        <a href="mailto:mahmoudabdullah2284@gmail.com" class="btn-outline"
+          >Send a Message</a
+        >
+      </div>
+      <div class="footer-div"></div>
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          © 2026 <span>Mahmoud Abdallah</span> — All Rights Reserved
+        </div>
+        <div class="social-links">
+          <a
+            href="https://github.com/MahmoudAbdullah228"
+            target="_blank"
+            class="social-link"
+            >GitHub</a
+          >
+          <a
+            href="https://www.linkedin.com/in/eng-mahmoud-m-abdullah-a04792295/"
+            target="_blank"
+            class="social-link"
+            >LinkedIn</a
+          >
+          <a
+            href="https://drive.google.com/file/d/1BFt0sI17NEZaabPG49BSN-pYrZXu47mI/view"
+            target="_blank"
+            class="social-link"
+            >CV</a
+          >
+        </div>
+        <div class="footer-loc"><span class="dot"></span>Minya, Egypt</div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
