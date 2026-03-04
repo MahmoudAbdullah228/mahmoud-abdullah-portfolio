@@ -3,23 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Mahmoud Abdallah — Egyptian Frontend Developer & CS student. Building high-performance web interfaces and mentoring developers at GDG Obour." />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta property="og:title" content="Mahmoud Abdallah — Frontend Developer" />
+    <meta property="og:description" content="Egyptian CS student & Frontend Developer. Building high-performance, visually precise web interfaces." />
+    <meta property="og:type" content="website" />
     <link rel="icon" type="image/png" href="./images/Tab Icon.png" />
     <title>Mahmoud Abdallah — Frontend Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+    <link rel="preload" as="image" href="./images/ME.jpg" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Instrument+Serif:ital@0;1&family=Syne:wght@400;600;700;800&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-ring" id="cursorRing"></div>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="cursor" id="cursor" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
 
     <!-- NAV -->
-    <nav>
-      <img src="./images/Logo.png" alt="2AB Logo" class="nav-logo" />
+    <nav aria-label="Main navigation">
+      <a href="#hero" aria-label="Go to top"><img src="./images/Logo.png" alt="Mahmoud Abdallah portfolio home" class="nav-logo" /></a>
       <ul class="nav-links">
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -29,9 +38,10 @@
       </ul>
     </nav>
 
+    <main id="main-content">
     <!-- HERO -->
-    <section id="hero">
-      <div class="hero-bg-circle"></div>
+    <section id="hero" aria-label="Hero introduction">
+      <div class="hero-bg-circle" aria-hidden="true"></div>
       <div class="hero-inner">
         <!-- Text -->
         <div>
@@ -51,6 +61,8 @@
             <a
               href="https://drive.google.com/file/d/1BFt0sI17NEZaabPG49BSN-pYrZXu47mI/view"
               target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Download CV (opens in new tab)"
               class="btn-outline"
               >CV</a
             >
@@ -58,7 +70,7 @@
           </div>
         </div>
         <!-- Vertical Divider -->
-        <div class="hero-divider fade-up d4"></div>
+        <div class="hero-divider fade-up d4" aria-hidden="true"></div>
         <!-- Photo -->
         <div class="fade-up d5">
           <div class="profile-wrap">
@@ -68,33 +80,35 @@
               src="./images/ME.jpg"
               alt="Mahmoud Abdallah"
               class="profile-photo"
+              fetchpriority="high"
+              decoding="async"
             />
             <div class="profile-tag">Mahmoud Abdallah</div>
           </div>
         </div>
       </div>
-      <div class="hero-scroll">
+      <div class="hero-scroll" aria-hidden="true">
         <div class="scroll-line"></div>
         Scroll to explore
       </div>
     </section>
 
-    <div class="divider"></div>
+    <div class="divider" role="separator" aria-hidden="true"></div>
 
     <!-- SKILLS -->
-    <section id="skills">
+    <section id="skills" aria-labelledby="skills-heading">
       <div class="section-label">01 &mdash; Tech Arsenal</div>
-      <h2 class="section-title">Skills &amp;<br />Stack</h2>
-      <div class="terminal-window">
-        <div class="terminal-bar">
+      <h2 class="section-title" id="skills-heading">Skills &amp;<br />Stack</h2>
+      <div class="terminal-window" role="region" aria-label="Tech stack skills">
+        <div class="terminal-bar" aria-hidden="true">
           <span class="t-dot t-red"></span><span class="t-dot t-yellow"></span
           ><span class="t-dot t-green"></span>
           <span class="t-title">mahmoud@dev ~ $ ls tech-stack</span>
         </div>
         <div class="skills-grid">
-          <div class="skill-card">
-            <div class="skill-num">01</div>
-            <div class="skill-icon">
+          <article class="skill-card">
+            <div class="skill-num" aria-hidden="true">01</div>
+            <div class="skill-icon" aria-hidden="true">
               <i class="devicon-html5-plain colored"></i>
               <i class="devicon-css3-plain colored"></i>
             </div>
@@ -104,10 +118,10 @@
               accessibility.
             </div>
             <div class="skill-level">Expert</div>
-          </div>
-          <div class="skill-card">
-            <div class="skill-num">02</div>
-            <div class="skill-icon">
+          </article>
+          <article class="skill-card">
+            <div class="skill-num" aria-hidden="true">02</div>
+            <div class="skill-icon" aria-hidden="true">
               <i class="devicon-javascript-plain colored"></i>
             </div>
             <div class="skill-name">JavaScript</div>
@@ -115,10 +129,10 @@
               ES6+, DOM, async/await,<br />RESTful APIs, JSON.
             </div>
             <div class="skill-level">Advanced</div>
-          </div>
-          <div class="skill-card">
-            <div class="skill-num">03</div>
-            <div class="skill-icon">
+          </article>
+          <article class="skill-card">
+            <div class="skill-num" aria-hidden="true">03</div>
+            <div class="skill-icon" aria-hidden="true">
               <i class="devicon-typescript-plain colored"></i>
             </div>
             <div class="skill-name">TypeScript</div>
@@ -126,10 +140,10 @@
               Typed components, interfaces,<br />generics, strict mode.
             </div>
             <div class="skill-level">Proficient</div>
-          </div>
-          <div class="skill-card">
-            <div class="skill-num">04</div>
-            <div class="skill-icon">
+          </article>
+          <article class="skill-card">
+            <div class="skill-num" aria-hidden="true">04</div>
+            <div class="skill-icon" aria-hidden="true">
               <i class="devicon-react-original colored"></i>
             </div>
             <div class="skill-name">React.js</div>
@@ -137,10 +151,10 @@
               Hooks, React Router, state mgmt,<br />reusable components, CRUD.
             </div>
             <div class="skill-level">Advanced</div>
-          </div>
-          <div class="skill-card">
-            <div class="skill-num">05</div>
-            <div class="skill-icon">
+          </article>
+          <article class="skill-card">
+            <div class="skill-num" aria-hidden="true">05</div>
+            <div class="skill-icon" aria-hidden="true">
               <i class="devicon-tailwindcss-original colored"></i>
               <i class="devicon-sass-original colored"></i>
             </div>
@@ -149,10 +163,10 @@
               Utility-first, responsive design,<br />variables, mixins, nesting.
             </div>
             <div class="skill-level">Expert</div>
-          </div>
-          <div class="skill-card">
-            <div class="skill-num">06</div>
-            <div class="skill-icon">
+          </article>
+          <article class="skill-card">
+            <div class="skill-num" aria-hidden="true">06</div>
+            <div class="skill-icon" aria-hidden="true">
               <i class="devicon-php-plain colored"></i>
               <i class="devicon-mysql-plain colored"></i>
             </div>
@@ -161,7 +175,7 @@
               Laravel basics, CRUD operations,<br />relational DB, SQL queries.
             </div>
             <div class="skill-level">Basics</div>
-          </div>
+          </article>
         </div>
       </div>
       <div class="stats-row">
@@ -184,18 +198,20 @@
       </div>
     </section>
 
-    <div class="divider"></div>
+    <div class="divider" role="separator" aria-hidden="true"></div>
 
     <!-- PROJECTS -->
-    <section id="projects">
+    <section id="projects" aria-labelledby="projects-heading">
       <div class="section-label">02 &mdash; SELECTED WORK</div>
-      <h2 class="section-title">Projects &amp;<br />Builds</h2>
+      <h2 class="section-title" id="projects-heading">Projects &amp;<br />Builds</h2>
       <div class="projects-grid">
         <div class="project-card">
           <img
             src="./images/StackOverLord.png"
-            alt="Stack Overlord"
+            alt="Stack Overlord project screenshot"
             class="project-img"
+            loading="lazy"
+            decoding="async"
           />
           <div class="project-body">
             <div>
@@ -218,6 +234,8 @@
                 <a
                   href="https://github.com/MahmoudAbdullah228/StackOverLord_Store"
                   target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View Stack Overlord on GitHub (opens in new tab)"
                   class="btn-demo"
                   >GitHub</a
                 >
@@ -228,8 +246,10 @@
         <div class="project-card">
           <img
             src="./images/Fior.png"
-            alt="Fior Flower Shop"
+            alt="Fior Flower Shop project screenshot"
             class="project-img"
+            loading="lazy"
+            decoding="async"
           />
           <div class="project-body">
             <div>
@@ -251,6 +271,8 @@
                 <a
                   href="https://github.com/MahmoudAbdullah228/Fior-Flower-Shop"
                   target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View Fior Flower Shop on GitHub (opens in new tab)"
                   class="btn-demo"
                   >GitHub</a
                 >
@@ -259,7 +281,7 @@
           </div>
         </div>
         <div class="project-card">
-          <img src="./images/Leon.png" alt="Leon Agency" class="project-img" />
+          <img src="./images/Leon.png" alt="Leon Agency project screenshot" class="project-img" loading="lazy" decoding="async" />
           <div class="project-body">
             <div>
               <div class="project-num">Project — 003</div>
@@ -279,6 +301,8 @@
                 <a
                   href="https://github.com/MahmoudAbdullah228/HTML_And_CSS_Template_One"
                   target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View Leon Agency on GitHub (opens in new tab)"
                   class="btn-demo"
                   >GitHub</a
                 >
@@ -289,9 +313,11 @@
         <div class="project-card">
           <img
             src="./images/Weather App.png"
-            alt="Weather App"
+            alt="Weather App project screenshot"
             class="project-img"
             style="object-fit: cover; background: #1a9e8f"
+            loading="lazy"
+            decoding="async"
           />
           <div class="project-body">
             <div>
@@ -312,6 +338,8 @@
                 <a
                   href="https://github.com/MahmoudAbdullah228/Weather-App"
                   target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View Weather App on GitHub (opens in new tab)"
                   class="btn-demo"
                   >GitHub</a
                 >
@@ -322,12 +350,12 @@
       </div>
     </section>
 
-    <div class="divider"></div>
+    <div class="divider" role="separator" aria-hidden="true"></div>
 
     <!-- LEARNING JOURNEY -->
-    <section id="learning">
+    <section id="learning" aria-labelledby="learning-heading">
       <div class="section-label">03 &mdash; HOW I GOT HERE</div>
-      <h2 class="section-title">Learning<br />Journey</h2>
+      <h2 class="section-title" id="learning-heading">Learning<br />Journey</h2>
       <div class="journey-track">
         <div class="journey-step">
           <div class="step-num">01</div>
@@ -442,19 +470,19 @@
       </div>
     </section>
 
-    <div class="divider"></div>
+    <div class="divider" role="separator" aria-hidden="true"></div>
 
     <!-- COMMUNITY + BIO side by side -->
-    <section id="community">
+    <section id="community" aria-labelledby="community-heading">
       <div class="section-label">04 &mdash; Beyond the IDE</div>
-      <h2 class="section-title">Community &amp;<br />Mentorship</h2>
+      <h2 class="section-title" id="community-heading">Community &amp;<br />Mentorship</h2>
 
       <div class="community-layout">
         <!-- Left: two cards stacked -->
         <div class="community-cards">
           <div class="community-card">
-            <div class="comm-icon">
-              <svg viewBox="0 0 24 24">
+            <div class="comm-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
                 <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
                 <path d="M6 12v5c3 3 9 3 12 0v-5" />
               </svg>
@@ -472,8 +500,8 @@
             <div class="comm-date">Obour City, Egypt</div>
           </div>
           <div class="community-card">
-            <div class="comm-icon">
-              <svg viewBox="0 0 24 24">
+            <div class="comm-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                 <circle cx="9" cy="7" r="4" />
                 <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
@@ -511,18 +539,18 @@
       </div>
     </section>
 
-    <div class="divider"></div>
+    <div class="divider" role="separator" aria-hidden="true"></div>
 
     <!-- CONTACT -->
-    <section id="contact">
-      <div class="contact-glow"></div>
-      <div class="contact-eyebrow">05 &mdash; LET'S BUILD TOGETHER</div>
-      <h2 class="contact-title">Got a<span>Vision?</span></h2>
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="contact-glow" aria-hidden="true"></div>
+      <div class="contact-eyebrow" aria-hidden="true">05 &mdash; LET'S BUILD TOGETHER</div>
+      <h2 class="contact-title" id="contact-heading">Got a<span>Vision?</span></h2>
       <p class="contact-sub">
         Whether it's a high-stakes product, an open-source collaboration, or a
         mentorship inquiry — I want to hear about it.
       </p>
-      <div class="contact-email-display">mahmoudabdullah2284@gmail.com</div>
+      <div class="contact-email-display" aria-label="Email address">mahmoudabdullah2284@gmail.com</div>
       <div class="contact-actions">
         <a href="mailto:mahmoudabdullah2284@gmail.com" class="btn-gold"
           ><span>Hire Me</span></a
@@ -531,8 +559,8 @@
           >Send a Message</a
         >
       </div>
-      <div class="footer-div"></div>
-      <div class="footer-bottom">
+      <div class="footer-div" aria-hidden="true"></div>
+      <footer class="footer-bottom">
         <div class="footer-copy">
           © 2026 <span>Mahmoud Abdallah</span> — All Rights Reserved
         </div>
@@ -540,25 +568,32 @@
           <a
             href="https://github.com/MahmoudAbdullah228"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub profile (opens in new tab)"
             class="social-link"
             >GitHub</a
           >
           <a
             href="https://www.linkedin.com/in/eng-mahmoud-m-abdullah-a04792295/"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn profile (opens in new tab)"
             class="social-link"
             >LinkedIn</a
           >
           <a
             href="https://drive.google.com/file/d/1BFt0sI17NEZaabPG49BSN-pYrZXu47mI/view"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Download CV (opens in new tab)"
             class="social-link"
             >CV</a
           >
         </div>
-        <div class="footer-loc"><span class="dot"></span>Minya, Egypt</div>
-      </div>
+        <div class="footer-loc"><span class="dot" aria-hidden="true"></span>Minya, Egypt</div>
+      </footer>
     </section>
+    </main>
 
     <script src="script.js"></script>
   </body>
