@@ -211,19 +211,6 @@ nav {
   position: relative;
   z-index: 1;
 }
-.hero-divider {
-  width: 1px;
-  height: 340px;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    var(--gold) 30%,
-    var(--gold) 70%,
-    transparent
-  );
-  margin: 0 60px;
-  opacity: 0.7;
-}
 
 .hero-label {
   font-family: var(--mono);
@@ -1134,9 +1121,6 @@ section {
   }
   .hero-inner {
     grid-template-columns: 1fr;
-  }
-  .hero-divider {
-    display: none;
   }
   .profile-wrap {
     width: 260px;
