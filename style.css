@@ -173,32 +173,6 @@ nav {
   position: relative;
   overflow: hidden;
 }
-.hero-bg-circle {
-  position: absolute;
-  top: 5%;
-  right: 3%;
-  width: 550px;
-  height: 550px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(212, 175, 55, 0.05) 0%,
-    transparent 70%
-  );
-  pointer-events: none;
-  animation: breathe 7s ease-in-out infinite;
-}
-@keyframes breathe {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 0.5;
-  }
-  50% {
-    transform: scale(1.08);
-    opacity: 1;
-  }
-}
 
 /* Hero grid: text | divider | photo */
 .hero-inner {
