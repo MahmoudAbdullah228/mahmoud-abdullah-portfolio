@@ -66,10 +66,10 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--black);
+  background: var(--gold);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--gold);
+  background: var(--black);
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #f0cc50;
