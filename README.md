@@ -4,7 +4,9 @@ A personal portfolio website showcasing my skills, projects, learning journey, a
 
 ## Live Preview
 
-Open `index.html` in any modern browser.
+[mahmoud-abdullah-portfolio.netlify.app](https://mahmoud-abdullah-portfolio.netlify.app/)
+
+Or open `index.html` in any modern browser.
 
 ## Features
 
@@ -33,6 +35,7 @@ Portfolio/
 ├── index.html       # Main HTML file
 ├── style.css        # All styles (layout, animations, components)
 ├── script.js        # Cursor tracking, scroll-based fade-in animations
+├── sitemap.xml      # XML sitemap for SEO indexing
 └── images/          # Logo, profile photo, project screenshots
     ├── Logo.png
     ├── Tab Icon.png
