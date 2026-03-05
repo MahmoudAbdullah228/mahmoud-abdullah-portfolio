@@ -1,4 +1,4 @@
-# Mahmoud Abdallah — Frontend Developer Portfolio
+# Mahmoud Abdullah — Frontend Developer Portfolio
 
 A personal portfolio website showcasing my skills, projects, learning journey, and community involvement as a Frontend Developer and CS student based in Egypt.
 
@@ -70,4 +70,4 @@ Portfolio/
 
 ---
 
-© 2026 Mahmoud Abdallah — All Rights Reserved
+© 2026 Mahmoud Abdullah — All Rights Reserved
