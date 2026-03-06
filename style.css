@@ -929,7 +929,10 @@ section {
   border-bottom: 1px solid rgba(212, 175, 55, 0.2);
   display: inline-block;
   padding-bottom: 8px;
+  text-decoration: none;
+  transition: color 0.3s;
 }
+.contact-email-display:hover { color: var(--gold); }
 .contact-actions {
   display: flex;
   align-items: center;
