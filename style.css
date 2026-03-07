@@ -625,11 +625,61 @@ section {
   border: none;
   cursor: none;
   text-decoration: none;
-  transition: opacity 0.3s;
+  transition: color 0.4s;
   display: inline-block;
+  position: relative;
+  overflow: hidden;
 }
-.btn-demo:hover {
-  opacity: 0.85;
+.btn-demo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--white);
+  transform: translateX(-101%);
+  transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.btn-demo:hover::before {
+  transform: translateX(0);
+}
+.btn-demo span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 1;
+}
+.btn-demo:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+.btn-watch {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  cursor: none;
+  text-decoration: none;
+  transition: border-color 0.3s, background 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.btn-watch svg {
+  flex-shrink: 0;
+  pointer-events: none;
+}
+.btn-watch:hover {
+  border-color: var(--gold);
+  background: rgba(212, 175, 55, 0.07);
+}
+.btn-watch:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
 }
 .btn-code {
   font-family: var(--mono);
@@ -1125,5 +1175,40 @@ section {
   }
   .hero-text h1 {
     font-size: 36px;
+  }
+  .project-body {
+    padding: 24px 20px 28px;
+  }
+  .project-cta {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .btn-demo {
+    padding: 14px 20px;
+    text-align: center;
+    justify-content: center;
+  }
+  .btn-demo span {
+    justify-content: center;
+  }
+  .btn-watch {
+    padding: 13px 20px;
+    justify-content: center;
+  }
+  .contact-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-bottom: 60px;
+  }
+  .contact-actions .btn-gold,
+  .contact-actions .btn-outline {
+    padding: 16px 20px;
+    text-align: center;
+    justify-content: center;
+  }
+  .contact-actions .btn-gold span {
+    justify-content: center;
   }
 }
