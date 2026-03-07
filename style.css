@@ -101,7 +101,7 @@ nav {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 200;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -144,6 +144,143 @@ nav {
 }
 .nav-links a:hover::after {
   width: 100%;
+}
+
+/* HAMBURGER TOGGLE */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 200;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+  transition: transform 0.35s ease, opacity 0.35s ease, width 0.35s ease;
+  transform-origin: center;
+}
+/* X animation when open */
+.nav-toggle.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+.nav-toggle.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* MOBILE MENU OVERLAY */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  background: rgba(0, 0, 0, 0.96);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+.mobile-menu.is-open {
+  opacity: 1;
+  pointer-events: all;
+}
+.mobile-nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+}
+.mobile-nav-links li {
+  overflow: hidden;
+}
+.mobile-nav-links a {
+  font-family: var(--display);
+  font-size: clamp(36px, 8vw, 64px);
+  letter-spacing: 4px;
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+  transition: color 0.3s ease, transform 0.3s ease;
+  transform: translateY(100%);
+  position: relative;
+}
+.mobile-menu.is-open .mobile-nav-links a {
+  transform: translateY(0);
+  transition: color 0.3s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.mobile-nav-links li:nth-child(1) a { transition-delay: 0.05s; }
+.mobile-nav-links li:nth-child(2) a { transition-delay: 0.1s; }
+.mobile-nav-links li:nth-child(3) a { transition-delay: 0.15s; }
+.mobile-nav-links li:nth-child(4) a { transition-delay: 0.2s; }
+.mobile-nav-links li:nth-child(5) a { transition-delay: 0.25s; }
+.mobile-nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width 0.35s ease;
+}
+/* Desktop hover */
+.mobile-nav-links a:hover {
+  color: var(--gold);
+}
+.mobile-nav-links a:hover::after {
+  width: 100%;
+}
+/* Touch tap feedback */
+.mobile-nav-links a:active,
+.mobile-nav-links a.is-tapped {
+  color: var(--gold);
+  transform: scale(0.96);
+}
+.mobile-nav-links a:active::after,
+.mobile-nav-links a.is-tapped::after {
+  width: 100%;
+}
+/* On pure-touch screens: keep gold underline visible after tap */
+@media (hover: none) {
+  .mobile-nav-links a {
+    -webkit-tap-highlight-color: transparent;
+  }
+  .mobile-nav-links a.is-tapped {
+    color: var(--gold);
+    transform: scale(0.96);
+  }
+  .mobile-nav-links a.is-tapped::after {
+    width: 100%;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .mobile-nav-links a {
+    font-size: clamp(24px, 4.5vw, 38px);
+    letter-spacing: 3px;
+  }
+  .mobile-nav-links {
+    gap: 24px;
+  }
 }
 
 /* HERO */
@@ -1118,6 +1255,12 @@ section {
   }
   .nav-links {
     display: none;
+  }
+  .nav-toggle {
+    display: flex;
+  }
+  .mobile-menu {
+    display: flex;
   }
   .nav-logo {
     height: 36px;

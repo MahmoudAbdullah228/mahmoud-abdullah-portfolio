@@ -1,6 +1,41 @@
 const cursor = document.getElementById("cursor");
 const ring = document.getElementById("cursorRing");
 
+// Mobile menu toggle
+const navToggle = document.querySelector(".nav-toggle");
+const mobileMenu = document.getElementById("mobileMenu");
+
+if (navToggle && mobileMenu) {
+  navToggle.addEventListener("click", () => {
+    const isOpen = mobileMenu.classList.toggle("is-open");
+    navToggle.classList.toggle("is-open", isOpen);
+    navToggle.setAttribute("aria-expanded", isOpen);
+    mobileMenu.setAttribute("aria-hidden", !isOpen);
+    document.body.style.overflow = isOpen ? "hidden" : "";
+  });
+
+  // Close menu when a link is clicked
+  mobileMenu.querySelectorAll("a").forEach((link) => {
+    // Touch tap highlight effect
+    link.addEventListener("touchstart", () => {
+      link.classList.add("is-tapped");
+      setTimeout(() => link.classList.remove("is-tapped"), 600);
+    }, { passive: true });
+
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      setTimeout(() => {
+        mobileMenu.classList.remove("is-open");
+        navToggle.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded", "false");
+        mobileMenu.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        window.location.href = link.getAttribute("href");
+      }, 400);
+    });
+  });
+}
+
 // Only run custom cursor on non-touch devices
 if (window.matchMedia("(pointer: fine)").matches) {
   let mx = 0,
