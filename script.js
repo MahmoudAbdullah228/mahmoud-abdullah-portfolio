@@ -6,21 +6,34 @@ const navToggle = document.querySelector(".nav-toggle");
 const mobileMenu = document.getElementById("mobileMenu");
 
 if (navToggle && mobileMenu) {
+  const menuLinks = mobileMenu.querySelectorAll("a");
+
+  function setMenuLinksTabindex(focusable) {
+    menuLinks.forEach((a) =>
+      a.setAttribute("tabindex", focusable ? "0" : "-1"),
+    );
+  }
+
   navToggle.addEventListener("click", () => {
     const isOpen = mobileMenu.classList.toggle("is-open");
     navToggle.classList.toggle("is-open", isOpen);
     navToggle.setAttribute("aria-expanded", isOpen);
     mobileMenu.setAttribute("aria-hidden", !isOpen);
+    setMenuLinksTabindex(isOpen);
     document.body.style.overflow = isOpen ? "hidden" : "";
   });
 
   // Close menu when a link is clicked
-  mobileMenu.querySelectorAll("a").forEach((link) => {
+  menuLinks.forEach((link) => {
     // Touch tap highlight effect
-    link.addEventListener("touchstart", () => {
-      link.classList.add("is-tapped");
-      setTimeout(() => link.classList.remove("is-tapped"), 600);
-    }, { passive: true });
+    link.addEventListener(
+      "touchstart",
+      () => {
+        link.classList.add("is-tapped");
+        setTimeout(() => link.classList.remove("is-tapped"), 600);
+      },
+      { passive: true },
+    );
 
     link.addEventListener("click", (e) => {
       e.preventDefault();
@@ -29,6 +42,7 @@ if (navToggle && mobileMenu) {
         navToggle.classList.remove("is-open");
         navToggle.setAttribute("aria-expanded", "false");
         mobileMenu.setAttribute("aria-hidden", "true");
+        setMenuLinksTabindex(false);
         document.body.style.overflow = "";
         window.location.href = link.getAttribute("href");
       }, 400);

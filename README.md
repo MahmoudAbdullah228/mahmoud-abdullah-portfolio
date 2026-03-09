@@ -24,27 +24,32 @@ Or open `index.html` in any modern browser.
 
 | Technology           | Usage                                       |
 | -------------------- | ------------------------------------------- |
-| HTML5                | Semantic structure                          |
+| HTML5                | Semantic structure, `<picture>` elements    |
 | CSS3                 | Layout, animations, custom properties       |
 | JavaScript (Vanilla) | Cursor effects, scroll-based fade-in        |
 | Google Fonts         | Bebas Neue, Syne, DM Mono, Instrument Serif |
+| WebP                 | Optimized image format with PNG/JPG fallback|
+| Netlify              | Hosting, caching headers, deployment        |
 
 ## Project Structure
 
 ```
 Portfolio/
 ├── index.html       # Main HTML file
-├── style.css        # All styles (layout, animations, components)
-├── script.js        # Cursor tracking, scroll-based fade-in animations
+├── style.css        # Source stylesheet (unminified, for editing)
+├── style.min.css    # Minified CSS (loaded by index.html)
+├── script.js        # Cursor tracking, mobile menu, scroll animations
 ├── sitemap.xml      # XML sitemap for SEO indexing
-└── images/          # Logo, profile photo, project screenshots
-    ├── Logo.png
-    ├── Favicon.png
-    ├── Me.jpg
-    ├── Stack-OverLord.png
-    ├── Fior.png
-    ├── Leon.png
-    └── Atmos-Lens.png
+├── netlify.toml     # Netlify deploy & cache configuration
+├── _headers         # Custom HTTP cache headers
+└── images/          # Optimized WebP + original fallbacks
+    ├── logo.webp / Logo.png
+    ├── favicon.png
+    ├── me.webp / ME.jpg
+    ├── stack-overlord.webp / stack-overlord.png
+    ├── fior.webp / Fior.png
+    ├── leon.webp / Leon.png
+    └── atmos-lens.webp / atmos-lens.png
 ```
 
 ## Sections
@@ -67,13 +72,26 @@ Portfolio/
 
 ## Accessibility & Performance
 
+**Accessibility (Lighthouse 100):**
 - All interactive elements have descriptive `aria-label` attributes
 - `aria-hidden="true"` on decorative SVGs and elements
 - `:focus-visible` outlines on all buttons and links (keyboard navigation)
 - Minimum 44×44px touch targets on mobile (WCAG 2.1 AA)
 - `rel="noopener noreferrer"` on all external links (security)
+- `<main>` landmark wrapping page content
+- Mobile menu links use `tabindex="-1"` when hidden (no focus trap)
+- WCAG AA color contrast on all text elements
+
+**Performance optimizations:**
+- All images served as WebP via `<picture>` with PNG/JPG fallback
+- Images resized to 1× display dimensions (total ~67 KB WebP)
+- CSS minified: `style.min.css` (27 KB → 20 KB)
+- External fonts & devicon CSS deferred with `media="print"` + `onload`
+- `font-display: swap` on all fonts
+- Hero image preloaded with `fetchpriority="high"`
 - Lazy loading (`loading="lazy"`) on all below-the-fold images
-- Critical hero image preloaded with `fetchpriority="high"`
+- Long-term cache headers via `netlify.toml` and `_headers`
+- Preconnect hints for Google Fonts & jsDelivr CDN
 
 ## Contact
 

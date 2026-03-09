@@ -21,18 +21,21 @@
     <link rel="icon" type="image/png" href="./images/favicon.png" />
 
     <!-- Performance: preload critical assets first -->
-    <link rel="preload" as="image" href="./images/ME.jpg" fetchpriority="high" />
+    <link rel="preload" as="image" href="./images/me.webp" type="image/webp" fetchpriority="high" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
 
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" /></noscript>
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Instrument+Serif:ital@0;1&family=Syne:wght@400;600;700;800&display=swap"
       rel="stylesheet"
+      media="print" onload="this.media='all'"
     />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Instrument+Serif:ital@0;1&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" /></noscript>
   </head>
   <body>
     <div class="cursor" id="cursor" aria-hidden="true"></div>
@@ -40,7 +43,12 @@
 
     <!-- NAV -->
     <nav aria-label="Main navigation">
-      <a href="#hero" aria-label="Go to top"><img src="./images/Logo.png" alt="Mahmoud Abdullah portfolio home" class="nav-logo" /></a>
+      <a href="#hero" aria-label="Go to top">
+        <picture>
+          <source srcset="./images/logo.webp" type="image/webp" />
+          <img src="./images/Logo.png" alt="Mahmoud Abdullah portfolio home" class="nav-logo" width="84" height="56" />
+        </picture>
+      </a>
       <ul class="nav-links">
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -57,14 +65,15 @@
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
       <ul class="mobile-nav-links">
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#learning">Journey</a></li>
-        <li><a href="#community">Community</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#skills" tabindex="-1">Skills</a></li>
+        <li><a href="#projects" tabindex="-1">Projects</a></li>
+        <li><a href="#learning" tabindex="-1">Journey</a></li>
+        <li><a href="#community" tabindex="-1">Community</a></li>
+        <li><a href="#contact" tabindex="-1">Contact</a></li>
       </ul>
     </div>
 
+    <main>
     <!-- HERO -->
     <section id="hero" aria-label="Hero introduction">
       <div class="hero-inner">
@@ -99,13 +108,18 @@
           <div class="profile-wrap">
             <div class="profile-frame-border"></div>
             <div class="profile-frame-border-2"></div>
-            <img
-              src="./images/ME.jpg"
-              alt="Mahmoud Abdullah"
-              class="profile-photo"
-              fetchpriority="high"
-              decoding="async"
-            />
+            <picture>
+              <source srcset="./images/me.webp" type="image/webp" />
+              <img
+                src="./images/ME.jpg"
+                alt="Mahmoud Abdullah"
+                class="profile-photo"
+                width="360"
+                height="436"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </picture>
             <div class="profile-tag">Mahmoud Abdullah</div>
           </div>
         </div>
@@ -229,13 +243,18 @@
       <h2 class="section-title" id="projects-heading">Projects &amp;<br />Builds</h2>
       <div class="projects-grid">
         <div class="project-card">
-          <img
-            src="./images/stack-overlord.png"
-            alt="Stack Overlord project screenshot"
-            class="project-img"
-            loading="lazy"
-            decoding="async"
-          />
+          <picture>
+            <source srcset="./images/stack-overlord.webp" type="image/webp" />
+            <img
+              src="./images/stack-overlord.png"
+              alt="Stack Overlord project screenshot"
+              class="project-img"
+              width="502"
+              height="282"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
           <div class="project-body">
             <div>
               <div class="project-num">Project — 001</div>
@@ -279,13 +298,18 @@
           </div>
         </div>
         <div class="project-card">
-          <img
-            src="./images/Fior.png"
-            alt="Fior Flower Shop project screenshot"
-            class="project-img"
-            loading="lazy"
-            decoding="async"
-          />
+          <picture>
+            <source srcset="./images/fior.webp" type="image/webp" />
+            <img
+              src="./images/Fior.png"
+              alt="Fior Flower Shop project screenshot"
+              class="project-img"
+              width="502"
+              height="287"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
           <div class="project-body">
             <div>
               <div class="project-num">Project — 002</div>
@@ -328,7 +352,10 @@
           </div>
         </div>
         <div class="project-card">
-          <img src="./images/Leon.png" alt="Leon Agency project screenshot" class="project-img" loading="lazy" decoding="async" />
+          <picture>
+            <source srcset="./images/leon.webp" type="image/webp" />
+            <img src="./images/Leon.png" alt="Leon Agency project screenshot" class="project-img" width="502" height="280" loading="lazy" decoding="async" />
+          </picture>
           <div class="project-body">
             <div>
               <div class="project-num">Project — 003</div>
@@ -370,14 +397,19 @@
           </div>
         </div>
         <div class="project-card">
-          <img
-            src="./images/atmos-lens.png"
-            alt="Atmos Lens weather app project screenshot"
-            class="project-img"
-            style="object-fit: cover; background: #1a9e8f"
-            loading="lazy"
-            decoding="async"
-          />
+          <picture>
+            <source srcset="./images/atmos-lens.webp" type="image/webp" />
+            <img
+              src="./images/atmos-lens.png"
+              alt="Atmos Lens weather app project screenshot"
+              class="project-img"
+              style="object-fit: cover; background: #1a9e8f"
+              width="537"
+              height="238"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
           <div class="project-body">
             <div>
               <div class="project-num">Project — 004</div>
