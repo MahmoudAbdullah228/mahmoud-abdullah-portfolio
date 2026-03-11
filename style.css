@@ -10,13 +10,21 @@
   --display: "Bebas Neue", sans-serif;
   --body: "Syne", sans-serif;
   --serif: "Instrument Serif", serif;
+
+  /* text opacity levels */
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --text-dim: rgba(255, 255, 255, 0.35);
+  --text-faint: rgba(255, 255, 255, 0.2);
+  --gold-muted: rgba(212, 175, 55, 0.5);
+
+  /* motion */
+  --ease-smooth: cubic-bezier(0.76, 0, 0.24, 1);
+
+  /* cursor */
+  --cursor-size: 10px;
+  --ring-size: 36px;
 }
-/* Force font-display: swap for devicon font */
-@font-face {
-  font-family: "devicon";
-  font-display: swap;
-  src: local("devicon");
-}
+
 *,
 *::before,
 *::after {
@@ -63,30 +71,48 @@ body {
   background: #f0cc50;
 }
 
-/* CURSOR */
+/* CURSOR — positioned via transform only (no layout reflow) */
 .cursor {
   position: fixed;
-  width: 10px;
-  height: 10px;
+  left: 0;
+  top: 0;
+  width: var(--cursor-size);
+  height: var(--cursor-size);
   background: var(--gold);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
-  transform: translate(-50%, -50%);
+  will-change: transform;
   transition:
     width 0.3s,
     height 0.3s;
 }
 .cursor-ring {
   position: fixed;
-  width: 36px;
-  height: 36px;
+  left: 0;
+  top: 0;
+  width: var(--ring-size);
+  height: var(--ring-size);
   border: 1px solid var(--gold-glow);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: all 0.15s;
+  will-change: transform;
+  transition:
+    width 0.15s,
+    height 0.15s,
+    border-color 0.15s;
+}
+
+/* REVEAL — used by IntersectionObserver */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* NOISE */
@@ -99,6 +125,11 @@ body::before {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
   background-size: 200px;
   opacity: 0.4;
+}
+@media (max-width: 900px) {
+  body::before {
+    display: none;
+  }
 }
 
 /* NAV */
@@ -114,6 +145,7 @@ nav {
   padding: 18px 60px;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), transparent);
   backdrop-filter: blur(10px);
+  touch-action: manipulation;
 }
 .nav-logo {
   height: 56px;
@@ -374,6 +406,7 @@ nav {
   overflow: hidden;
   text-decoration: none;
   display: inline-block;
+  touch-action: manipulation;
 }
 .btn-gold::before {
   content: "";
@@ -403,6 +436,7 @@ nav {
   transition: all 0.3s;
   text-decoration: none;
   display: inline-block;
+  touch-action: manipulation;
 }
 .btn-outline:hover {
   border-color: var(--gold);
@@ -584,6 +618,7 @@ section {
   overflow: hidden;
   transition: background 0.35s;
   cursor: none;
+  contain: content;
 }
 .skill-card:hover {
   background: #0f0d00;
@@ -612,13 +647,13 @@ section {
   gap: 10px;
   margin-bottom: 18px;
 }
-.skill-icon i {
-  font-size: 38px;
-  opacity: 0.9;
-  filter: grayscale(1) brightness(10);
+.skill-icon svg {
+  width: 38px;
+  height: 38px;
+  filter: brightness(0) invert(1);
   transition: filter 0.3s ease;
 }
-.skill-card:hover .skill-icon i {
+.skill-card:hover .skill-icon svg {
   filter: none;
 }
 .skill-name {
@@ -676,6 +711,7 @@ section {
   cursor: none;
   display: flex;
   flex-direction: column;
+  contain: layout style;
 }
 .project-card::after {
   content: "";
@@ -772,6 +808,7 @@ section {
   display: inline-block;
   position: relative;
   overflow: hidden;
+  touch-action: manipulation;
 }
 .btn-demo::before {
   content: "";
@@ -811,6 +848,7 @@ section {
   align-items: center;
   gap: 8px;
   flex-shrink: 0;
+  touch-action: manipulation;
 }
 .btn-watch svg {
   flex-shrink: 0;
@@ -886,6 +924,7 @@ section {
   margin-bottom: 12px;
   transition: border-color 0.3s;
   cursor: none;
+  contain: content;
 }
 .step-body:hover {
   border-color: var(--gold-glow);
@@ -951,6 +990,7 @@ section {
   transition: background 0.4s;
   cursor: none;
   flex: 1;
+  contain: content;
 }
 .community-card::before {
   content: "";
@@ -1359,5 +1399,30 @@ section {
   }
   .contact-actions .btn-gold span {
     justify-content: center;
+  }
+}
+
+/* OFF-SCREEN RENDERING — skip rendering until scrolled into view */
+#projects,
+#learning,
+#community,
+#contact {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
+
+/* REDUCED MOTION — respect user preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }

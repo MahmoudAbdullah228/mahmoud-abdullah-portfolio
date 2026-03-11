@@ -56,17 +56,18 @@ if (window.matchMedia("(pointer: fine)").matches) {
     my = 0,
     rx = 0,
     ry = 0;
+  const cursorHalf = 5; // --cursor-size / 2
+  const ringHalf = 18; // --ring-size / 2
+
   document.addEventListener("mousemove", (e) => {
     mx = e.clientX;
     my = e.clientY;
-    cursor.style.left = mx + "px";
-    cursor.style.top = my + "px";
+    cursor.style.transform = `translate3d(${mx - cursorHalf}px, ${my - cursorHalf}px, 0)`;
   });
   (function loop() {
-    rx += (mx - rx) * 0.8;
-    ry += (my - ry) * 0.8;
-    ring.style.left = rx + "px";
-    ring.style.top = ry + "px";
+    rx += (mx - rx) * 0.15;
+    ry += (my - ry) * 0.15;
+    ring.style.transform = `translate3d(${rx - ringHalf}px, ${ry - ringHalf}px, 0)`;
     requestAnimationFrame(loop);
   })();
 } else {
@@ -79,9 +80,8 @@ const obs = new IntersectionObserver(
   (entries) => {
     entries.forEach((e) => {
       if (e.isIntersecting) {
-        e.target.style.opacity = "1";
-        e.target.style.transform = "translateY(0)";
-        obs.unobserve(e.target); // stop watching once animated
+        e.target.classList.add("is-visible");
+        obs.unobserve(e.target);
       }
     });
   },
@@ -92,8 +92,6 @@ document
     ".skill-card,.project-card,.step-body,.community-card,.stat-item,.bio-panel",
   )
   .forEach((el) => {
-    el.style.opacity = "0";
-    el.style.transform = "translateY(24px)";
-    el.style.transition = "opacity .65s ease, transform .65s ease";
+    el.classList.add("reveal");
     obs.observe(el);
   });

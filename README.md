@@ -10,8 +10,8 @@ Or open `index.html` in any modern browser.
 
 ## Features
 
-- **Custom cursor** with ring follower effect
-- **Animated hero section** with fade-up entrance animations
+- **Custom cursor** with GPU-accelerated ring follower (transform3d, zero layout reflow)
+- **Animated hero section** with fade-up entrance animations using CSS `.reveal` classes
 - **Skills terminal UI** displaying tech stack in a styled terminal window
 - **Projects gallery** with 4 real-world project showcases, each with a live demo link and GitHub link
 - **Learning journey timeline** tracing the path from fundamentals to production-grade development
@@ -25,9 +25,10 @@ Or open `index.html` in any modern browser.
 | Technology           | Usage                                       |
 | -------------------- | ------------------------------------------- |
 | HTML5                | Semantic structure, `<picture>` elements    |
-| CSS3                 | Layout, animations, custom properties       |
-| JavaScript (Vanilla) | Cursor effects, scroll-based fade-in        |
-| Google Fonts         | Bebas Neue, Syne, DM Mono, Instrument Serif |
+| CSS3                 | Layout, animations, custom properties, CSS variables |
+| JavaScript (Vanilla) | Cursor effects, IntersectionObserver reveal  |
+| Inline SVGs          | Tech stack icons (no external icon font)     |
+| Google Fonts         | Bebas Neue, Syne, DM Mono, Instrument Serif  |
 | WebP                 | Optimized image format with PNG/JPG fallback|
 | Netlify              | Hosting, caching headers, deployment        |
 
@@ -38,10 +39,10 @@ Portfolio/
 ├── index.html       # Main HTML file
 ├── style.css        # Source stylesheet (unminified, for editing)
 ├── style.min.css    # Minified CSS (loaded by index.html)
-├── script.js        # Cursor tracking, mobile menu, scroll animations
+├── script.js        # GPU cursor, mobile menu, IntersectionObserver reveal
 ├── sitemap.xml      # XML sitemap for SEO indexing
-├── netlify.toml     # Netlify deploy & cache configuration
-├── _headers         # Custom HTTP cache headers
+├── netlify.toml     # Netlify build & plugin config
+├── _headers         # HTTP cache headers (single source of truth)
 └── images/          # Optimized WebP + original fallbacks
     ├── logo.webp / Logo.png
     ├── favicon.png
@@ -86,12 +87,20 @@ Portfolio/
 - All images served as WebP via `<picture>` with PNG/JPG fallback
 - Images resized to 1× display dimensions (total ~67 KB WebP)
 - CSS minified: `style.min.css` (27 KB → 20 KB)
-- External fonts & devicon CSS deferred with `media="print"` + `onload`
+- Devicon font replaced with inline SVGs (eliminated ~100 KB external CSS + font)
+- External fonts deferred with `media="print"` + `onload`
 - `font-display: swap` on all fonts
 - Hero image preloaded with `fetchpriority="high"`
 - Lazy loading (`loading="lazy"`) on all below-the-fold images
-- Long-term cache headers via `netlify.toml` and `_headers`
-- Preconnect hints for Google Fonts & jsDelivr CDN
+- Cursor & ring use `transform: translate3d()` + `will-change: transform` (compositor-only, no layout reflow)
+- IntersectionObserver uses CSS classes (`.reveal` / `.is-visible`) instead of inline styles
+- `content-visibility: auto` on off-screen sections (skip rendering until scrolled into view)
+- CSS `contain` on cards (`content` / `layout style`) to isolate layout recalculations
+- `touch-action: manipulation` on buttons and nav (eliminates 300 ms tap delay)
+- Noise overlay hidden on mobile (`display: none` below 900 px) to save GPU paint
+- `prefers-reduced-motion: reduce` disables all animations for users who opt out
+- Long-term cache headers via `_headers` (no duplication in `netlify.toml`)
+- Preconnect hints for Google Fonts
 
 ## Contact
 
